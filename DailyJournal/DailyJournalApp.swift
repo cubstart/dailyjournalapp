@@ -11,7 +11,17 @@ import SwiftUI
 struct DailyJournalApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            TabView {
+                ContentView()
+                    .tabItem {
+                        Label("Journals", systemImage: "note.text")
+                    }
+                FavoritesView()
+                    .tabItem {
+                        Label("Favorites", systemImage: "star")
+                    }
+            }
+            .modelContainer(for: [DailyJournal.self])
         }
     }
 }
